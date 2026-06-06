@@ -18,10 +18,7 @@ const ServicePage = ({params}) => {
   
   const Response = FetchService(urlparsed)
 
-  export const metadata = {
-  title: `${Response[0].tag}`,
-};
-
+ 
   if (!Response || Response.length === 0) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
