@@ -14,7 +14,13 @@ const ServicePage = ({params}) => {
     return Services.filter((S) => S.tag === serv)
   }
 
+
+  
   const Response = FetchService(urlparsed)
+
+  export const metadata = {
+  title: `${Response[0].tag}`,
+};
 
   if (!Response || Response.length === 0) {
     return (
