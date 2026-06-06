@@ -1,5 +1,5 @@
 "use client";
-import { Codes, CountryCoder } from "@/CountryCodes";
+import { Codes, CountryCoder } from "@/app/static/CountryCodes";
 import Modal from "./Modal";
 import SuccessMessage from "./SuccessMessage";
 import ErrorMessage from "./ErrorMessage";

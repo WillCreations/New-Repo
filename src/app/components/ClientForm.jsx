@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { Codes } from "@/CountryCodes";
+import { Codes } from "@/app/static/CountryCodes";
 import Modal from "@/app/components/Modal";
 import ErrorMessage from "./ErrorMessage";
 import SuccessMessage from "./SuccessMessage";

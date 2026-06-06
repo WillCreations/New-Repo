@@ -10,165 +10,24 @@ import { addClient } from "@/app/(Engine)/actions/addClient";
 import Navbutton from "./components/Navbutton";
 import Slide from "@/app/components/Slide";
 import Testimonial from "@/app/components/Testimonial";
+import ServicesComp from "@/app/components/ServicesComp";
 import Contact from "@/app/components/Contact";
 import SubHeader from "@/app/components/SubHeader";
 import Round from "@/app/components/Round";
 import Accordion from "@/app/components/Accordion";
 import Offer from "@/app/components/Offer";
 import { useMemo } from "react";
+import Services from "@/app/static/Services";
+import Offers from "@/app/static/Offers";
+import Clients from "@/app/static/Clients";
 
-// Move static data outside the component for better performance
 
-const Services = [
-  {
-    tag: "Full Stack Web Development",
-    image: "/avatar/web.svg",
-    para: "Our expert team brings your digital vision to life with custom-built websites and web applications tailored to your specific needs. With proficiency in a variety of programming languages and frameworks, we ensure your online presence stands out in the crowded digital landscape",
-  },
-  {
-    tag: "Graphic Designs",
-    image: "/avatar/graphics.svg",
-    para: "Captivate your audience with visually stunning graphics crafted by our talented designers. Whether it's logos, illustrations, infographics, or any other graphical elements, we infuse creativity and innovation into every design to make your brand shine.",
-  },
-  {
-    tag: "UI/UX Design",
-    image: "/avatar/UI.svg",
-    para: "User experience is paramount in today's digital world. Our UI/UX experts design intuitive interfaces that not only engage users but also enhance usability and satisfaction, resulting in higher conversions and customer retention.",
-  },
-  {
-    tag: "Brand Identity and Logo Design",
-    image: "/avatar/brand.svg",
-    para: "Your brand is more than just a logo - it's the essence of your business. Let us help you create a memorable brand identity that resonates with your audience and sets you apart from the competition. From logos to brand guidelines, we ensure consistency across all touchpoints",
-  },
-  {
-    tag: "Motion Graphics",
-    image: "/avatar/motion.svg",
-    para: "Bring your brand to life with dynamic motion graphics that capture attention and leave a lasting impression. Our skilled animators create visually compelling animations and videos that communicate your message effectively across various platforms.",
-  },
-  {
-    tag: "Magazine and Book Design",
-    image: "/avatar/books.svg",
-    para: "Impress your readers with visually stunning magazine layouts and book designs. From cover to cover, we blend creativity with functionality to create publications that engage and inspire.",
-  },
-];
-const Offers = [
-  {
-    Tag: "Bronze",
-    Price: 500,
-    Bonus: 40,
-    Denomination: "k",
-    FeatureTag: "Starter Website",
-    Feature: ["1–5 pages", "responsive design", "basic SEO", "contact form"],
-    Recommended: false,
-  },
-  {
-    Tag: "Silver",
-    Price: 1,
-    Bonus: 40,
-    Denomination: "m",
-    FeatureTag: "Business Website",
-    Feature: [
-      "6–15 pages",
-      "blog integration",
-      "on-page SEO",
-      "CMS (WordPress/Next.js)",
-      "analytics setup",
-    ],
-    Recommended: true,
-  },
-  {
-    Tag: "Gold",
-    Price: 2.5,
-    Bonus: 52,
-    Denomination: "m",
-    FeatureTag: "E-Commerce Website",
-    Feature: [
-      "Unlimited pages",
-      "product catalog",
-      "payment integration",
-      "shipping setup",
-      "basic training",
-    ],
-    Recommended: false,
-  },
-  {
-    Tag: "Platinum",
-    Price: 3,
-    Bonus: 0,
-    Denomination: "m",
-    FeatureTag: "Custom Web App",
-    Feature: [
-      "Tailor-made solutions",
-      "advanced integrations",
-      "dashboards",
-      "API development",
-    ],
-    Recommended: false,
-  },
-];
-
-const Clients = [
-  {
-    name: "Sarah Johnson",
-    image: "/testimonial/SarahJohnson.webp",
-    profession: "Marketing Manager",
-    business: "Horizon Foods",
-    rate: 5,
-    comment:
-      "The team at Eureka completely transformed our online presence. Their creativity and strategy gave us a fresh brand image and increased customer engagement by 40%. They truly feel like an extension of our in-house team.",
-  },
-  {
-    name: "David Okoro",
-    image: "/testimonial/DavidOkoro.webp",
-    profession: "CEO",
-    business: "TechNova Solutions",
-    rate: 4,
-    comment:
-      "They are simply fantastic. We needed a digital partner who understood both technology and storytelling. Eureka delivered beyond expectations — from web design to targeted campaigns. Their work has directly contributed to our growth in new markets.",
-  },
-  {
-    name: "Emily Chen",
-    image: "/testimonial/EmilyChen.webp",
-    profession: "Founder",
-    business: "Bloom Boutique",
-    rate: 5,
-    comment:
-      "As a small business owner, I was worried about investing in digital marketing. But Eureka made the process seamless and results-driven. My sales have doubled in just six months, and my customers love the new website design.",
-  },
-  {
-    name: "Michael Brown",
-    image: "/testimonial/MichaelBrown.webp",
-    profession: "Real Estate Consultant",
-    business: "Future Homes",
-    rate: 4,
-    comment:
-      "I’ve worked with several agencies before, but none compare to Eureka. They built a lead-generation system that keeps my pipeline full. Their professionalism and dedication are second to none.",
-  },
-  {
-    name: "Amina Yusuf",
-    image: "/testimonial/AminaYusuf.webp",
-    profession: "Program Director",
-    business: "Better World Initiative",
-    rate: 4,
-    comment:
-      "Partnering with Eureka has helped us tell our story in a powerful way. Our campaigns now reach thousands more people, and donations have grown significantly. They genuinely care about impact, not just numbers.",
-  },
-  {
-    name: "Carlos Mendes",
-    image: "/testimonial/CarlosMendes.webp",
-    profession: "Creative Director",
-    business: "Vista Media",
-    rate: 5,
-    comment:
-      "Working with Eureka has been an inspiring experience. They brought fresh ideas, executed flawlessly, and consistently delivered on time. Their blend of creativity and technical expertise makes them my go-to agency for digital projects.",
-  },
-];
 
 export default async function Home() {
   await connectToDb();
   const Prod = await Product.find();
   // Only serialize if needed for child components
-  const prodSend = JSON.stringify(Prod);
+  const ProductExhibits = JSON.stringify(Prod);
 
   const session = await getServerSession(options);
   return (
@@ -252,27 +111,9 @@ export default async function Home() {
         <SubHeader tag="Our Services" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-          {Services.map((unit) => {
+          {Services.map((unit, index) => {
             return (
-              <div
-                key={unit.tag}
-                className={`bg-[#121212] rounded-2xl text-green-300  p-5 ${styles.Pop}`}
-              >
-                <div className="flex justify-center  h-40 w-full overflow-hidden py-10 my-5">
-                  <Image
-                    className="block text-center"
-                    src={unit.image}
-                    width={100}
-                    height={100}
-                    alt={unit.tag}
-                  />
-                </div>
-
-                <h4 className="text-2xl text-white font-extrabold">
-                  {unit.tag}
-                </h4>
-                <p className="text-sm font-mono text-left">{unit.para}</p>
-              </div>
+              <ServicesComp key={index} unit={unit}/>
             );
           })}
         </div>
@@ -302,7 +143,7 @@ export default async function Home() {
       </div>
       <div className="mx-5 xxs:mx-10  lg:mx-28 my-32">
         <SubHeader tag="Trending Products" />
-        <Slide Prod={prodSend} />
+        <Slide Prod={ProductExhibits} />
       </div>
       <div className=" px-10 lg:px-28 my-32">
         <SubHeader tag="Why Choose Us" />

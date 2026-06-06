@@ -1,5 +1,5 @@
 "use client";
-import { Codes } from "@/CountryCodes";
+import { Codes } from "@/app/static/CountryCodes";
 import Uploader from "@/app/components/Uploader";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";

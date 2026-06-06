@@ -7,7 +7,7 @@ import User from "@/app/(Engine)/models/user";
 import Image from "next/image";
 import ImageForm from "@/app/components/ImageForm";
 import { uploader } from "@/app/(Engine)/actions/uploader";
-import { CountryCoder } from "@/CountryCodes";
+import { CountryCoder } from "@/app/static/CountryCodes";
 import DnD from "@/app/components/DnD";
 import UserDetails from "@/app/components/UserDetails";
 

@@ -71,7 +71,7 @@ const Navbar = ({ Action }) => {
                 height={10}
               />
             </div>
-            <h1 className="p-0 font-bold text-2xl text-blue-300">Eureka</h1>
+            <h1 className="p-0 font-bold text-2xl text-green-300">Eureka</h1>
           </div>
         </Link>
 

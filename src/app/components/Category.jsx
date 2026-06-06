@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
-import { category } from "@/Category";
+// import { category } from "@/app/static/Category";
 
 const Category = ({ FetchFilter, Fetcher, cateSearch, catego }) => {
   const categoryRef = useRef(null);

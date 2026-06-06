@@ -16,7 +16,7 @@ export const metadata = {
     template: "%s | Eureka",
   },
   icons: {
-    icon: [{ url: "../favicon.ico", type: "image/x-icon", sizes: "900x1291" }],
+    icon: "./Eureka.ico",
   },
   description:
     "Eureka.com, Igwe Princewill, Portfolio Website, Graphics, web development, react, next js, vercel app, ",
