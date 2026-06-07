@@ -4,6 +4,13 @@ import UrlParser from "@/app/utils/UrlParser"
 import Image from "next/image"
 import Link from "next/link"
 import { FaCheckCircle, FaArrowRight, FaStar } from "react-icons/fa"
+import { title } from 'process'
+
+
+  export const metadata = {
+    title: `Service Details`,
+    description: `Learn more about our service and how it can benefit you. Discover features, pricing, and why we're the best choice for your needs.`,
+  }
 
 const ServicePage = ({params}) => {
 
@@ -15,6 +22,8 @@ const ServicePage = ({params}) => {
   }
 
   const Response = FetchService(urlparsed)
+
+
 
   if (!Response || Response.length === 0) {
     return (
