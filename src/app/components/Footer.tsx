@@ -1,9 +1,13 @@
+'use client';
 import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import FooterLinks from "@/app/components/FooterLinks";
 
-const Footer = () => {
+const Footer = ({children}) => {
   const currentYear = new Date().getFullYear();
+
+  
 
   return (
     <footer className="bg-slate-900 text-gray-300 mt-16 pt-12 pb-6">
@@ -35,28 +39,8 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-green-500 transition">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-400 hover:text-green-500 transition">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="text-gray-400 hover:text-green-500 transition">
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link href="/serviceDetails" className="text-gray-400 hover:text-green-500 transition">
-                  Services
-                </Link>
-              </li>
-            </ul>
+            <FooterLinks />
+            
           </div>
 
           {/* Support */}
