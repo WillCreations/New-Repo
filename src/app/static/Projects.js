@@ -19,7 +19,7 @@ const projects = [
       project: "Eureka",
       description:
         "An e-commerce web application that doubles as business website, built with Next js, React js, Tailwind,  MongoDb, Cloudinary. Using Next 14 proved quite challenging, however I was able to write both backend and frontend code in  one application.",
-      link: "http://localhost:3001",
+      link: "https://eureka-princewilligwe.vercel.app/",
       decoy: "www.eureka.com",
       image: "/projects/Eureka.PNG",
     },
