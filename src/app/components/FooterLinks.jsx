@@ -1,7 +1,9 @@
 'use client'
 import React from 'react'
 import { useContext } from 'react'
-import FooterContext from '@/contextProvider/FooterContext'
+import Link from "next/link";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import {FooterContext} from '@/contextProvider/FooterContext'
 
 const FooterLinks = () => {
 
