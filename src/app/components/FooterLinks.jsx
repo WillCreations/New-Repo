@@ -3,12 +3,12 @@ import React from 'react'
 import { useContext } from 'react'
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import {FooterContext} from '@/contextProvider/FooterContext'
+import FooterContext from '@/contextProvider/FooterContext'
 
 const FooterLinks = () => {
 
   console.log({FooterContext})
-  const { scrollToSection } = useContext(FooterContext)
+  const { setMoveTrigger, scrollToSection } = useContext(FooterContext)
 
 
 
@@ -30,9 +30,15 @@ const FooterLinks = () => {
                     </Link>
                   </li>
                   <li>
-                    <div onClick={scrollToSection} className="text-gray-400 hover:text-green-500 transition">
+                    <button 
+                      onClick={() => {
+                      console.log("clicked Services");
+                      setMoveTrigger(true);
+                      scrollToSection();
+                      }} 
+                      className="cursor-pointer text-gray-400 hover:text-green-500 transition">
                       Services
-                    </div>
+                    </button>
                   </li>
         </ul>
   )

@@ -30,17 +30,13 @@ export default function RootLayout({ children }) {
       <Provider>
         <body className={`${inter.className}  bg-black`}>
           <FooterContextProvider>
-          <ProductCartProvider>
-            <CarouselContextProvider>
-              
+            <ProductCartProvider>
+              <CarouselContextProvider>            
                 <Navbar Action={fetchUserDetails} />
                 {children}
                 <Footer/>
-        
-
-              
-            </CarouselContextProvider>
-          </ProductCartProvider>
+              </CarouselContextProvider>
+            </ProductCartProvider>
           </FooterContextProvider>
         </body>
       </Provider>

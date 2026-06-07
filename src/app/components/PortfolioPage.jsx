@@ -5,7 +5,6 @@ import Link from "next/link";
 import PortNav from "@/app/components/PortNav";
 import Carousel from "@/app/components/Carousel";
 import CarouselGrid from "@/app/components/CarouselGrid";
-
 import Contact from "./Contact";
 import Image from "next/image";
 import ScrollToTop from "@/app/components/ScrollToTop";
