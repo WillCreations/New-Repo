@@ -15,6 +15,7 @@ import Contact from "@/app/components/Contact";
 import SubHeader from "@/app/components/SubHeader";
 import Round from "@/app/components/Round";
 import Accordion from "@/app/components/Accordion";
+import ServiceRef from "@/app/components/ServiceRef";
 import Offer from "@/app/components/Offer";
 import { useMemo } from "react";
 import Services from "@/app/static/Services";
@@ -110,13 +111,8 @@ export default async function Home() {
       <div className={`px-5 xxs:px-10 lg:px-28 mt-32`}>
         <SubHeader tag="Our Services" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-          {Services.map((unit, index) => {
-            return (
-              <ServicesComp key={index} unit={unit}/>
-            );
-          })}
-        </div>
+        <ServiceRef />
+
       </div>
 
       <div className=" mx-5 xxs:mx-10  lg:mx-28 my-32">

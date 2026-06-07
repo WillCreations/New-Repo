@@ -4,12 +4,12 @@ import React, { useContext } from "react";
 import CarouselContext from "@/contextProvider/CarouselContextProvider";
 import Image from "next/image";
 
-const CarouselGrid = ({ picture }) => {
+const CarouselGrid = ({ pictures }) => {
   const { active, Activator } = useContext(CarouselContext);
 
   return (
     <div className="grid grid-cols-5 mt-5 gap-2 border-solid border-x-2 border-green-300">
-      {picture.map((p, index) => {
+      {pictures.map((p, index) => {
         return (
           <div key={index} className="flex justify-center w-full">
             <div
@@ -17,7 +17,7 @@ const CarouselGrid = ({ picture }) => {
                 active === index ? "border-green-300 " : "border-black"
               } border-solid border-4 col-span-1 h-fit w-fit  rounded-md overflow-hidden `}
               onClick={() => {
-                Activator(picture, null, index);
+                Activator(pictures, null, index);
               }}
             >
               <Image

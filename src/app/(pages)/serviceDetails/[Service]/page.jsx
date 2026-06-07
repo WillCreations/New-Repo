@@ -25,12 +25,7 @@ const ServicePage = ({params}) => {
   
   const Response = FetchService(urlparsed)
 
-<<<<<<< HEAD
- 
-=======
 
-
->>>>>>> 5a7cedb0c10b3117d7063f06b7df35899b5f9ad2
   if (!Response || Response.length === 0) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">

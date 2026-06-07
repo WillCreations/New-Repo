@@ -1,4 +1,6 @@
-export default const Socials = [
+
+
+const Socials = [
     {
       name: "Github",
       image: "/socials/Github.svg",
@@ -21,7 +23,8 @@ export default const Socials = [
       name: "Pinterest",
       image: "/socials/Pinterest.svg",
       black: "/socials/PinterestBlk.svg",
-      link: "",
+      link: "https://www.pinterest.com/willcreationstudios/",
+
     },
     {
       name: "Facebook",
@@ -30,3 +33,6 @@ export default const Socials = [
       link: "https://web.facebook.com/princewill.igwe.73",
     },
   ];
+
+  export default Socials
+

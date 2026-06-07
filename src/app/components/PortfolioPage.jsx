@@ -15,7 +15,7 @@ import SubHeader from "@/app/components/SubHeader";
 
 const PortfolioPage = ({
   projects,
-  picture,
+  pictures,
   Socials,
   skills,
   addClient,
@@ -86,7 +86,9 @@ const PortfolioPage = ({
             <div className=" md:col-span-3  flex justify-start  gap-3">
               {Socials.map((one, index) => {
                 return (
-                  <div
+                  <Link
+                    href={one.link}
+                    target="blank"
                     key={index}
                     className="flex justify-center border-solid object-contain overflow-hidden border-2 border-green-300 rounded-full h-11 w-11 p-2"
                   >
@@ -97,7 +99,7 @@ const PortfolioPage = ({
                       width={500}
                       alt="skill logos"
                     />
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -201,7 +203,7 @@ const PortfolioPage = ({
         <div className="my-28 items-center grid gap-5 lg:grid-cols-2">
           <div>
             <h2 className="subHeader lg:hidden">Graphic Design Projects</h2>
-            <Carousel p={picture} key={0} />
+            <Carousel p={pictures} key={0} />
           </div>
           <div>
             <h2 className="subHeader hidden lg:block">
@@ -221,7 +223,7 @@ const PortfolioPage = ({
                   established timelines.
                 </li>
               </ul>
-              <CarouselGrid picture={picture} />
+              <CarouselGrid pictures={pictures} />
             </div>
           </div>
         </div>
@@ -241,10 +243,10 @@ const PortfolioPage = ({
                   concepts, and final results. Link: [Link to project/video]
                 </li>
               </ul>
-              <CarouselGrid picture={picture} />
+              <CarouselGrid pictures={pictures} />
             </div>
           </div>
-          <Carousel p={picture} key={1} />
+          <Carousel p={pictures} key={1} />
         </div>
       </div>
       <div id="Skills" ref={skillRef} className="mt-28">
