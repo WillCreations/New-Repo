@@ -1,6 +1,6 @@
 "use client";
-import { createContext, useState } from "react";
-import {useRouter} from 'next/navigation';
+import { createContext, useState, useEffect } from "react";
+import {useRouter, useSearchParams} from 'next/navigation';
 
 const FooterContext = createContext({
     currentYear: new Date().getFullYear(),
@@ -16,16 +16,28 @@ export const FooterContextProvider = ({ children }) => {
   const [moveTrigger, setMoveTrigger] = useState(false);
   const offSet = 115;
   const Router = useRouter();
+  const searchParams = useSearchParams();
 
+  // Check for scroll intent on mount and when params change
+  useEffect(() => {
+    const scrollToServices = searchParams.get('scrollToServices');
+    if (scrollToServices === 'true' && refHolder?.current) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: refHolder?.current?.offsetTop - offSet,
+          behavior: "smooth",
+        });
+        // Clean up the URL param
+        Router.replace('/');
+      }, 100);
+    }
+  }, [searchParams, refHolder]);
 
-  console.log({refHolder})
-
-   
-
-   const scrollToSection = () => {
-    console.log("clicked contexted hit")
+  const scrollToSection = () => {
+    console.log("Services scroll triggered")
     if (!refHolder || !refHolder.current) {
-      Router.push('/');
+      // Navigate to homepage with scroll intent param
+      Router.push('/?scrollToServices=true');
     } else {
         window.scrollTo({
           top: refHolder?.current?.offsetTop - offSet,

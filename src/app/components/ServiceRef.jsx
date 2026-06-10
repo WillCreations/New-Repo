@@ -7,26 +7,19 @@ import FooterContext from '@/contextProvider/FooterContext';
 
 const ServiceRef = () => {
 
-    const { Scroller, refHolder, setRefHolder, moveTrigger,setMoveTrigger } = useContext(FooterContext)
+    const { refHolder, setRefHolder } = useContext(FooterContext)
 
     const serviceRef = useRef(null)
 
     useEffect(() => {
         const SetRef = () => {
             if (serviceRef.current) {
-                setRefHolder(serviceRef);
+                setRefHolder(serviceRef.current);
             }
         };
 
         SetRef();
-    }, [serviceRef]);
-
-    useEffect(() => {
-        Scroller()
-        return () => {
-            setMoveTrigger(false)
-        }
-    }, [])
+    }, [serviceRef.current, setRefHolder]);
 
   return (
     <div ref={serviceRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">

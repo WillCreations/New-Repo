@@ -33,7 +33,6 @@ const FooterLinks = () => {
                     <button 
                       onClick={() => {
                       console.log("clicked Services");
-                      setMoveTrigger(true);
                       scrollToSection();
                       }} 
                       className="cursor-pointer text-gray-400 hover:text-green-500 transition">
